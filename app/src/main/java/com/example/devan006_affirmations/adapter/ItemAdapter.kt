@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.devan006_affirmations.R
@@ -12,7 +13,8 @@ import com.example.devan006_affirmations.model.Affirmation
 /**
  * Adapter for the RecyclerView in MainActivity. Displays Affirmation data object.
  */
-class ItemAdapter(private val dataset: List<Affirmation>, private val context: Context
+class ItemAdapter(
+    private val dataset: List<Affirmation>, private val context: Context,
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     // Provide a reference to the views for each data item
@@ -21,6 +23,7 @@ class ItemAdapter(private val dataset: List<Affirmation>, private val context: C
     // In this app each data item is just an Affirmation object.
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.item_title)
+        val imageView: ImageView = view.findViewById(R.id.item_image)
     }
 
     /**
@@ -40,6 +43,7 @@ class ItemAdapter(private val dataset: List<Affirmation>, private val context: C
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
         holder.textView.text = context.resources.getString(item.sringResourceId)
+        holder.imageView.setImageResource(item.imageResourceId)
     }
 
     /**
