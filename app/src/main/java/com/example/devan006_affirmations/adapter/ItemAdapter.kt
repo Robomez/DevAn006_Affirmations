@@ -14,7 +14,7 @@ import com.example.devan006_affirmations.model.Affirmation
  * Adapter for the RecyclerView in MainActivity. Displays Affirmation data object.
  */
 class ItemAdapter(
-    private val dataset: List<Affirmation>, private val context: Context,
+    private val context: Context, private val dataset: List<Affirmation>,
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     // Provide a reference to the views for each data item
@@ -42,7 +42,7 @@ class ItemAdapter(
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.textView.text = context.resources.getString(item.sringResourceId)
+        holder.textView.text = context.resources.getString(item.stringResourceId)
         holder.imageView.setImageResource(item.imageResourceId)
     }
 
